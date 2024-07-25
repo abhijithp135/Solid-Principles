@@ -1,6 +1,7 @@
 package net.media.training.live.dip;
 
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,7 +13,11 @@ import java.io.IOException;
 public class EncodingModuleClient {
     public static void main(String[] args) throws IOException {
         EncodingModule encodingModule  = new EncodingModule();
-        encodingModule.encodeWithFiles();
-        encodingModule.encodeBasedOnNetworkAndDatabase();
+        File readFile = new File("src/main/java/net/media/tyraining/live/dip/beforeEncryption.txt");
+        File writeFile = new File("src/main/java/net/media/tyraining/live/dip/afterEncryption.txt");
+        encodingModule.encode(readFile.getReader(), writeFile.getWriter());
+        
+        Network network = new Network(new URL("http", "myfirstappwith.appspot.com", "index.html"));
+        encodingModule.encode(network.getReader(), new MyDatabase());
     }
 }

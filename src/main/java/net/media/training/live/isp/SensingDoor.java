@@ -34,10 +34,6 @@ public class SensingDoor implements Door{
         this.isOpened = false;
     }
 
-    public void timeOutCallback() {
-      throw new NotImplementedException();
-    }
-
     public void proximityCallback() {
         this.isOpened = true;
     }
